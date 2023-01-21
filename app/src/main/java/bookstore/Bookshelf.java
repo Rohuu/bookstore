@@ -69,15 +69,7 @@ public class Bookshelf {
 
     public List<Book> listBooksByDesc() {
         List<Book> sortedBooks = new ArrayList<>(this.books);
-        Collections.sort(sortedBooks, new Comparator<Book>() {
-
-            @Override
-            public int compare(Book o1, Book o2) {
-                // TODO Auto-generated method stub
-                return o2.getTitle().compareTo(o1.getTitle());
-            }
-
-        });
+        Collections.sort(sortedBooks, new DescendingBookComparator());
         return Collections.unmodifiableList(sortedBooks);
     }
 }
