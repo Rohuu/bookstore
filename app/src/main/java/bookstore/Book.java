@@ -1,14 +1,15 @@
 package bookstore;
 
-public class Book {
+public class Book implements Comparable<Book> { /* implements Comparable<Book> */
     private String title;
 
-    public Book(String string) {
-    }
-
-    public void title(String title) {
+    public Book(String title) {
         this.title = title;
     }
+
+    // public void title(String title) {
+    // this.title = title;
+    // }
 
     public String getTitle() {
         return title;
@@ -37,6 +38,17 @@ public class Book {
         } else if (!title.equals(other.title))
             return false;
         return true;
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        // TODO Auto-generated method stub
+        return this.title.compareTo(o.title);
+    }
+
+    @Override
+    public String toString() {
+        return "Book [title=" + title + "]";
     }
 
 }
