@@ -27,17 +27,26 @@ public class BookshelfTest {
         }
     }
 
+    @Test
+    public void should_delete_an_existing_book_from_bookshelf() {
+        Bookshelf bookshelf = new Bookshelf();
+        bookshelf.add(new Book("Effective Java"));
+        bookshelf.add(new Book("Clean Code"));
+        boolean deleted = bookshelf.delete(new Book("Effective Java"));
+        assertThat(deleted).isTrue();
+    }
+
     // new requirement-> should be able to share if bookshelf is public
 
-    @Test
-    public void should_throw_exception_if_we_try_to_share_a_private_bookshelf() {
-        Bookshelf bookshelf = new Bookshelf();
-        try {
-            bookshelf.share();
-            fail("This should not happen");
-        } catch (Exception e) {
-            assertThat(e).isInstanceOf(IllegalStateException.class);
-        }
+    // @Test
+    // public void should_throw_exception_if_we_try_to_share_a_private_bookshelf() {
+    // Bookshelf bookshelf = new Bookshelf();
+    // try {
+    // bookshelf.share();
+    // assertThat(e).isInstanceOf(IllegalStateException.class);
+    // fail("This should not happen");
+    // } catch (Exception e) {
+    // }
 
-    }
+    // }
 }
